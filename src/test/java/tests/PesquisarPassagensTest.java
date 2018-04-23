@@ -4,7 +4,6 @@ import org.easetech.easytest.annotation.DataLoader;
 import org.easetech.easytest.annotation.Param;
 import org.easetech.easytest.runner.DataDrivenTestRunner;
 import org.junit.*;
-import org.junit.rules.TestName;
 import org.junit.runner.RunWith;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -15,12 +14,12 @@ import org.openqa.selenium.support.ui.Select;
 import java.util.concurrent.TimeUnit;
 
 @RunWith(DataDrivenTestRunner.class)
-@DataLoader(filePaths = "PesquisarPassagensTest.csv")
-public class PesquisarPassagensTest {
-    private WebDriver navegador;
 
-    //@Rule
-    //public TestName test = new TestName();
+@DataLoader(filePaths = "C:\\Users\\Aline Barreto\\IdeaProjects\\webdriver-java\\src\\test\\resources\\PesquisarPassagensTest.csv")
+
+public class PesquisarPassagensTest {
+
+    private WebDriver navegador = null;
 
     @Before
     public void setUp() {
@@ -34,7 +33,7 @@ public class PesquisarPassagensTest {
     }
 
     @Test
-    public void testPassagemCupomValidoVazio(@Param(name="code")String code, @Param(name="mensagem")String mensagem){
+    public void testPassagemCupomValidoVazio(@Param(name="code")String code, @Param(name="mensagem")String mensagem) {
         //Clicar no campo ID departing e selecionar value Select...
         WebElement departing = navegador.findElement(By.id("departing"));
         new Select(departing).selectByVisibleText("Select...");
@@ -43,7 +42,7 @@ public class PesquisarPassagensTest {
         WebElement returning = navegador.findElement(By.id("returning"));
         new Select(returning).selectByVisibleText("Select...");
 
-        //Clicar no ID promotional_code e preencher com o valor "AA1-AAA- 124"
+        //Clicar no ID promotional_code e preencher com o code válido, inválido e vazio
         WebElement codeValido = navegador.findElement(By.id("promotional_code"));
         codeValido.sendKeys(code);
 
@@ -53,13 +52,14 @@ public class PesquisarPassagensTest {
         //validar a mensagem
         WebElement mensagemTela = navegador.findElement(By.xpath("//*[@id=\"content\"]/p[1]"));
         String mensagem1 = mensagemTela.getText();
-        Assert.assertEquals(mensagem, mensagem1);
+        String mensagemReplace = mensagem.replaceAll(";", ",");
+        Assert.assertEquals(mensagemReplace, mensagem1);
 
         //Printar o Resultado
     }
 
     @Test
-    public void testPassagemCupomValidoVazioJuly() {
+    public void testPassagemCupomValidoVazioJuly(@Param(name="code")String code, @Param(name="mensagem")String mensagem) {
         //Clicar no campo ID departing e selecionar value Select...
         WebElement departing = navegador.findElement(By.id("departing"));
         new Select(departing).selectByVisibleText("Select...");
@@ -68,9 +68,9 @@ public class PesquisarPassagensTest {
         WebElement returning = navegador.findElement(By.id("returning"));
         new Select(returning).selectByVisibleText("July (two years from now)");
 
-        //Clicar no ID promotional_code e preencher com o valor "AA1-AAA- 124"
+        //Clicar no ID promotional_code e preencher com o code válido, inválido e vazio
         WebElement codeValido = navegador.findElement(By.id("promotional_code"));
-        codeValido.sendKeys("AA1-AAA- 124");
+        codeValido.sendKeys(code);
 
         //Clicar no botão "Search" através do xpath
         navegador.findElement(By.xpath("//*[@id=\"content\"]/form/dl[4]/dd")).click();
@@ -78,13 +78,14 @@ public class PesquisarPassagensTest {
         //validar a mensagem
         WebElement mensagemTela = navegador.findElement(By.xpath("//*[@id=\"content\"]/p[1]"));
         String mensagem1 = mensagemTela.getText();
-        Assert.assertEquals("Sorry, there are no more seats available.", mensagem1);
+        String mensagemReplace = mensagem.replaceAll(";", ",");
+        Assert.assertEquals(mensagemReplace, mensagem1);
 
         //Printar o Resultado
     }
 
     @Test
-    public void testPassagemCupomValidoVazioDecember() {
+    public void testPassagemCupomValidoVazioDecember(@Param(name="code")String code, @Param(name="mensagem")String mensagem) {
         //Clicar no campo ID departing e selecionar value Select...
         WebElement departing = navegador.findElement(By.id("departing"));
         new Select(departing).selectByVisibleText("Select...");
@@ -93,9 +94,9 @@ public class PesquisarPassagensTest {
         WebElement returning = navegador.findElement(By.id("returning"));
         new Select(returning).selectByVisibleText("December (two years from now)");
 
-        //Clicar no ID promotional_code e preencher com o valor "AA1-AAA- 124"
+        //Clicar no ID promotional_code e preencher com o code válido, inválido e vazio
         WebElement codeValido = navegador.findElement(By.id("promotional_code"));
-        codeValido.sendKeys("AA1-AAA- 124");
+        codeValido.sendKeys(code);
 
         //Clicar no botão "Search" através do xpath
         navegador.findElement(By.xpath("//*[@id=\"content\"]/form/dl[4]/dd")).click();
@@ -103,13 +104,14 @@ public class PesquisarPassagensTest {
         //validar a mensagem
         WebElement mensagemTela = navegador.findElement(By.xpath("//*[@id=\"content\"]/p[1]"));
         String mensagem1 = mensagemTela.getText();
-        Assert.assertEquals("Sorry, there are no more seats available.", mensagem1);
+        String mensagemReplace = mensagem.replaceAll(";", ",");
+        Assert.assertEquals(mensagemReplace, mensagem1);
 
         //Printar o Resultado
     }
 
     @Test
-    public void testPassagemCupomValidoJulyVazio() {
+    public void testPassagemCupomValidoJulyVazio(@Param(name="code")String code, @Param(name="mensagem")String mensagem) {
         //Clicar no campo ID departing e selecionar value Select...
         WebElement departing = navegador.findElement(By.id("departing"));
         new Select(departing).selectByVisibleText("July");
@@ -118,9 +120,9 @@ public class PesquisarPassagensTest {
         WebElement returning = navegador.findElement(By.id("returning"));
         new Select(returning).selectByVisibleText("Select...");
 
-        //Clicar no ID promotional_code e preencher com o valor "AA1-AAA- 124"
+        //Clicar no ID promotional_code e preencher com o code válido, inválido e vazio
         WebElement codeValido = navegador.findElement(By.id("promotional_code"));
-        codeValido.sendKeys("AA1-AAA- 124");
+        codeValido.sendKeys(code);
 
         //Clicar no botão "Search" através do xpath
         navegador.findElement(By.xpath("//*[@id=\"content\"]/form/dl[4]/dd")).click();
@@ -128,13 +130,14 @@ public class PesquisarPassagensTest {
         //validar a mensagem
         WebElement mensagemTela = navegador.findElement(By.xpath("//*[@id=\"content\"]/p[1]"));
         String mensagem1 = mensagemTela.getText();
-        Assert.assertEquals("Sorry, there are no more seats available.", mensagem1);
+        String mensagemReplace = mensagem.replaceAll(";", ",");
+        Assert.assertEquals(mensagemReplace, mensagem1);
 
         //Printar o Resultado
     }
 
     @Test
-    public void testPassagemCupomValidoJulyDecemberTwoYears() {
+    public void testPassagemCupomValidoJulyDecemberTwoYears(@Param(name="code")String code, @Param(name="mensagem")String mensagem) {
 
         //Clicar no campo ID departing e selecionar value Select...
         WebElement departing = navegador.findElement(By.id("departing"));
@@ -144,24 +147,26 @@ public class PesquisarPassagensTest {
         WebElement returning = navegador.findElement(By.id("returning"));
         new Select(returning).selectByVisibleText("December (two years from now)");
 
-        //Clicar no ID promotional_code e preencher com o valor "AA1-AAA- 124"
+        //Clicar no ID promotional_code e preencher com o code válido, inválido e vazio
         WebElement codeValido = navegador.findElement(By.id("promotional_code"));
-        codeValido.sendKeys("AA1-AAA- 124");
+        codeValido.sendKeys(code);
 
         //Clicar no botão "Search" através do xpath
         navegador.findElement(By.xpath("//*[@id=\"content\"]/form/dl[4]/dd")).click();
 
-        //validar a mensagem
-        WebElement mensagemTela = navegador.findElement(By.xpath("//div[@id='content']/p[3]"));
-        String mensagem4 = mensagemTela.getText();
-        Assert.assertEquals("Call now on 0800 MARSAIR to book!", mensagem4);
+        //validar a mensagem2: Call now on 0800 MARSAIR to book!
+        WebElement mensagemTela = navegador.findElement(By.xpath("//div[@id='content']/p[2]"));
+        String mensagem2 = mensagemTela.getText();
+        String mensagemReplace = mensagem.replaceAll(";", ",");
+        Assert.assertEquals(mensagemReplace, mensagem2);
+
 
         //Printar o Resultado
 
     }
 
     @Test
-    public void testPassagemCupomValidoDecemberVazio() {
+    public void testPassagemCupomValidoDecemberVazio(@Param(name="code")String code, @Param(name="mensagem")String mensagem) {
         //Clicar no campo ID departing e selecionar value Select...
         WebElement departing = navegador.findElement(By.id("departing"));
         new Select(departing).selectByVisibleText("December");
@@ -170,9 +175,9 @@ public class PesquisarPassagensTest {
         WebElement returning = navegador.findElement(By.id("returning"));
         new Select(returning).selectByVisibleText("Select...");
 
-        //Clicar no ID promotional_code e preencher com o valor "AA1-AAA- 124"
+        //Clicar no ID promotional_code e preencher com o code válido, inválido e vazio
         WebElement codeValido = navegador.findElement(By.id("promotional_code"));
-        codeValido.sendKeys("AA1-AAA- 124");
+        codeValido.sendKeys(code);
 
         //Clicar no botão "Search" através do xpath
         navegador.findElement(By.xpath("//*[@id=\"content\"]/form/dl[4]/dd")).click();
@@ -180,13 +185,14 @@ public class PesquisarPassagensTest {
         //validar a mensagem
         WebElement mensagemTela = navegador.findElement(By.xpath("//*[@id=\"content\"]/p[1]"));
         String mensagem1 = mensagemTela.getText();
-        Assert.assertEquals("Sorry, there are no more seats available.", mensagem1);
+        String mensagemReplace = mensagem.replaceAll(";", ",");
+        Assert.assertEquals(mensagemReplace, mensagem1);
 
         //Printar o Resultado
     }
 
         @Test
-        public void testPassagemCupomValidoDecemberJulyTwoYearsFromNow() {
+        public void testPassagemCupomValidoDecemberJulyTwoYearsFromNow(@Param(name="code")String code, @Param(name="mensagem")String mensagem) {
             //Clicar no campo ID departing e selecionar value Select...
             WebElement departing = navegador.findElement(By.id("departing"));
             new Select(departing).selectByVisibleText("December");
@@ -195,9 +201,9 @@ public class PesquisarPassagensTest {
             WebElement returning = navegador.findElement(By.id("returning"));
             new Select(returning).selectByVisibleText("July (two years from now)");
 
-            //Clicar no ID promotional_code e preencher com o valor "AA1-AAA- 124"
+            //Clicar no ID promotional_code e preencher com o code válido, inválido e vazio
             WebElement codeValido = navegador.findElement(By.id("promotional_code"));
-            codeValido.sendKeys("AA1-AAA- 124");
+            codeValido.sendKeys(code);
 
             //Clicar no botão "Search" através do xpath
             navegador.findElement(By.xpath("//*[@id=\"content\"]/form/dl[4]/dd")).click();
@@ -205,14 +211,15 @@ public class PesquisarPassagensTest {
             //validar a mensagem
             WebElement mensagemTela = navegador.findElement(By.xpath("//*[@id=\"content\"]/p[1]"));
             String mensagem1 = mensagemTela.getText();
-            Assert.assertEquals("Sorry, there are no more seats available.", mensagem1);
+            String mensagemReplace = mensagem.replaceAll(";", ",");
+            Assert.assertEquals(mensagemReplace, mensagem1);
 
             //Printar o Resultado
 
         }
 
     @Test
-    public void testPassagemCupomValidoDecemberNextYearVazio() {
+    public void testPassagemCupomValidoDecemberNextYearVazio(@Param(name="code")String code, @Param(name="mensagem")String mensagem) {
         //Clicar no campo ID departing e selecionar value Select...
         WebElement departing = navegador.findElement(By.id("departing"));
         new Select(departing).selectByVisibleText("December (next year)");
@@ -221,9 +228,9 @@ public class PesquisarPassagensTest {
         WebElement returning = navegador.findElement(By.id("returning"));
         new Select(returning).selectByVisibleText("Select...");
 
-        //Clicar no ID promotional_code e preencher com o valor "AA1-AAA- 124"
+        //Clicar no ID promotional_code e preencher com o code válido, inválido e vazio
         WebElement codeValido = navegador.findElement(By.id("promotional_code"));
-        codeValido.sendKeys("AA1-AAA- 124");
+        codeValido.sendKeys(code);
 
         //Clicar no botão "Search" através do xpath
         navegador.findElement(By.xpath("//*[@id=\"content\"]/form/dl[4]/dd")).click();
@@ -231,7 +238,8 @@ public class PesquisarPassagensTest {
         //validar a mensagem
         WebElement mensagemTela = navegador.findElement(By.xpath("//*[@id=\"content\"]/p[1]"));
         String mensagem1 = mensagemTela.getText();
-        Assert.assertEquals("Sorry, there are no more seats available.", mensagem1);
+        String mensagemReplace = mensagem.replaceAll(";", ",");
+        Assert.assertEquals(mensagemReplace, mensagem1);
 
         //Printar o Resultado
 
@@ -239,7 +247,7 @@ public class PesquisarPassagensTest {
 
 
     @Test
-    public void testPassagemCupomValidoJulyNextYearJulyTwoYears() {
+    public void testPassagemCupomValidoJulyNextYearJulyTwoYears(@Param(name="code")String code, @Param(name="mensagem")String mensagem) {
         //Clicar no campo ID departing e selecionar value Select...
         WebElement departing = navegador.findElement(By.id("departing"));
         new Select(departing).selectByVisibleText("July (next year)");
@@ -248,9 +256,9 @@ public class PesquisarPassagensTest {
         WebElement returning = navegador.findElement(By.id("returning"));
         new Select(returning).selectByVisibleText("July (two years from now)");
 
-        //Clicar no ID promotional_code e preencher com o valor "AA1-AAA- 124"
+        //Clicar no ID promotional_code e preencher com o code válido, inválido e vazio
         WebElement codeValido = navegador.findElement(By.id("promotional_code"));
-        codeValido.sendKeys("AA1-AAA- 124");
+        codeValido.sendKeys(code);
 
         //Clicar no botão "Search" através do xpath
         navegador.findElement(By.xpath("//*[@id=\"content\"]/form/dl[4]/dd")).click();
@@ -258,14 +266,15 @@ public class PesquisarPassagensTest {
         //validar a mensagem
         WebElement mensagemTela = navegador.findElement(By.xpath("//*[@id=\"content\"]/p[1]"));
         String mensagem1 = mensagemTela.getText();
-        Assert.assertEquals("Sorry, there are no more seats available.", mensagem1);
+        String mensagemReplace = mensagem.replaceAll(";", ",");
+        Assert.assertEquals(mensagemReplace, mensagem1);
 
         //Printar o Resultado
 
     }
 
     @Test
-    public void testPassagemCupomValidoDecemberNextYearDecemberTwoYears() {
+    public void testPassagemCupomValidoDecemberNextYearDecemberTwoYears(@Param(name="code")String code, @Param(name="mensagem")String mensagem) {
         //Clicar no campo ID departing e selecionar value Select...
         WebElement departing = navegador.findElement(By.id("departing"));
         new Select(departing).selectByVisibleText("December (next year)");
@@ -274,9 +283,9 @@ public class PesquisarPassagensTest {
         WebElement returning = navegador.findElement(By.id("returning"));
         new Select(returning).selectByVisibleText("December (two years from now)");
 
-        //Clicar no ID promotional_code e preencher com o valor "AA1-AAA- 124"
+        //Clicar no ID promotional_code e preencher com o code válido, inválido e vazio
         WebElement codeValido = navegador.findElement(By.id("promotional_code"));
-        codeValido.sendKeys("AA1-AAA- 124");
+        codeValido.sendKeys(code);
 
         //Clicar no botão "Search" através do xpath
         navegador.findElement(By.xpath("//*[@id=\"content\"]/form/dl[4]/dd")).click();
@@ -284,13 +293,14 @@ public class PesquisarPassagensTest {
         //validar a mensagem
         WebElement mensagemTela = navegador.findElement(By.xpath("//*[@id=\"content\"]/p[1]"));
         String mensagem1 = mensagemTela.getText();
-        Assert.assertEquals("Sorry, there are no more seats available.", mensagem1);
+        String mensagemReplace = mensagem.replaceAll(";", ",");
+        Assert.assertEquals(mensagemReplace, mensagem1);
 
         //Printar o Resultado
     }
 
     @Test
-    public void testPassagemCupomValidoJulyNextYearDecemberTwoYears() {
+    public void testPassagemCupomValidoJulyNextYearDecemberTwoYears(@Param(name="code")String code, @Param(name="mensagem")String mensagem) {
         //Clicar no campo ID departing e selecionar value Select...
         WebElement departing = navegador.findElement(By.id("departing"));
         new Select(departing).selectByVisibleText("July (next year)");
@@ -299,9 +309,9 @@ public class PesquisarPassagensTest {
         WebElement returning = navegador.findElement(By.id("returning"));
         new Select(returning).selectByVisibleText("December (two years from now)");
 
-        //Clicar no ID promotional_code e preencher com o valor "AA1-AAA- 124"
+        //Clicar no ID promotional_code e preencher com o code válido, inválido e vazio
         WebElement codeValido = navegador.findElement(By.id("promotional_code"));
-        codeValido.sendKeys("AA1-AAA- 124");
+        codeValido.sendKeys(code);
 
         //Clicar no botão "Search" através do xpath
         navegador.findElement(By.xpath("//*[@id=\"content\"]/form/dl[4]/dd")).click();
@@ -309,13 +319,14 @@ public class PesquisarPassagensTest {
         //validar a mensagem
         WebElement mensagemTela = navegador.findElement(By.xpath("//*[@id=\"content\"]/p[1]"));
         String mensagem1 = mensagemTela.getText();
-        Assert.assertEquals("Sorry, there are no more seats available.", mensagem1);
+        String mensagemReplace = mensagem.replaceAll(";", ",");
+        Assert.assertEquals(mensagemReplace, mensagem1);
 
         //Printar o Resultado
     }
 
     @Test
-    public void testPassagemCupomValidoDecemberNextYearJulyTwoYears() {
+    public void testPassagemCupomValidoDecemberNextYearJulyTwoYears(@Param(name="code")String code, @Param(name="mensagem")String mensagem) {
         //Clicar no campo ID departing e selecionar value Select...
         WebElement departing = navegador.findElement(By.id("departing"));
         new Select(departing).selectByVisibleText("December (next year)");
@@ -324,17 +335,18 @@ public class PesquisarPassagensTest {
         WebElement returning = navegador.findElement(By.id("returning"));
         new Select(returning).selectByVisibleText("July (two years from now)");
 
-        //Clicar no ID promotional_code e preencher com o valor "AA1-AAA- 124"
+        //Clicar no ID promotional_code e preencher com o code válido, inválido e vazio
         WebElement codeValido = navegador.findElement(By.id("promotional_code"));
-        codeValido.sendKeys("AA1-AAA- 124");
+        codeValido.sendKeys(code);
 
         //Clicar no botão "Search" através do xpath
         navegador.findElement(By.xpath("//*[@id=\"content\"]/form/dl[4]/dd")).click();
 
-        //validar a mensagem
+        //validar a mensagem3: Unfortunately, this schedule is not possible. Please try again.
         WebElement mensagemTela = navegador.findElement(By.xpath("//*[@id=\"content\"]/p[1]"));
         String mensagem3 = mensagemTela.getText();
-        Assert.assertEquals("Unfortunately, this schedule is not possible. Please try again.", mensagem3);
+        String mensagemReplace = mensagem.replaceAll(";", ",");
+        Assert.assertEquals(mensagemReplace, mensagem3);
 
         //Printar o Resultado
     }

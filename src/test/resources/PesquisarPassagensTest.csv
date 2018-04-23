@@ -1,4 +1,48 @@
-testPassagemCupomValidoVazio,code,mensagem
-                            ,AA1-AAA-124,Sorry, there are no more seats available.
-                            ,AA11-AAA-009,Sorry, there are no more seats available.
-                            ,            ,Sorry, there are no more seats available.
+testPassagemCupomValidoVazio,code,mensagem,,Duration(ms),Duration(ms),Duration(ms),Duration(ms),Duration(ms),Duration(ms),Duration(ms),Duration(ms),Duration(ms),Duration(ms)
+"",AA1-AAA-124,Sorry; there are no more seats available.,null,2589.0,2589.0,2589.0,2589.0,2589.0,2589.0,2589.0,2589.0,2589.0,2589.0
+"",AA11-AAA-009,Sorry; there are no more seats available.,null,978.0,978.0,978.0,978.0,978.0,978.0,978.0,978.0,978.0,978.0
+"",,Sorry; there are no more seats available.,null,799.0,799.0,799.0,799.0,799.0,799.0,799.0,799.0,799.0,799.0
+testPassagemCupomValidoVazioJuly,code,mensagem,Duration(ms),Duration(ms),Duration(ms),Duration(ms),Duration(ms),Duration(ms),Duration(ms),Duration(ms),Duration(ms)
+"",AA1-AAA-124,Sorry; there are no more seats available.,1032.0,1032.0,1032.0,1032.0,1032.0,1032.0,1032.0,1032.0,1032.0
+"",AA11-AAA-009,Sorry; there are no more seats available.,1018.0,1018.0,1018.0,1018.0,1018.0,1018.0,1018.0,1018.0,1018.0
+"",,Sorry; there are no more seats available.,770.0,770.0,770.0,770.0,770.0,770.0,770.0,770.0,770.0
+testPassagemCupomValidoVazioDecember,code,mensagem,Duration(ms),Duration(ms),Duration(ms),Duration(ms),Duration(ms),Duration(ms),Duration(ms),Duration(ms),Duration(ms),Duration(ms)
+"",AA1-AAA-124,Sorry; there are no more seats available.,828.0,828.0,828.0,828.0,828.0,828.0,828.0,828.0,828.0,828.0
+"",AA11-AAA-009,Sorry; there are no more seats available.,775.0,775.0,775.0,775.0,775.0,775.0,775.0,775.0,775.0,775.0
+"",,Sorry; there are no more seats available.,636.0,636.0,636.0,636.0,636.0,636.0,636.0,636.0,636.0,636.0
+testPassagemCupomValidoJulyVazio,code,mensagem,Duration(ms),Duration(ms),Duration(ms),Duration(ms),Duration(ms),Duration(ms),Duration(ms),Duration(ms),Duration(ms),Duration(ms)
+"",AA1-AAA-124,Sorry; there are no more seats available.,1118.0,1118.0,1118.0,1118.0,1118.0,1118.0,1118.0,1118.0,1118.0,1118.0
+"",AA11-AAA-009,Sorry; there are no more seats available.,1041.0,1041.0,1041.0,1041.0,1041.0,1041.0,1041.0,1041.0,1041.0,1041.0
+"",,Sorry; there are no more seats available.,1020.0,1020.0,1020.0,1020.0,1020.0,1020.0,1020.0,1020.0,1020.0,1020.0
+testPassagemCupomValidoJulyDecemberTwoYears,code,mensagem,Duration(ms),Duration(ms)
+"",AA1-AAA-124,Promotional code AA1-AAA-124 used: 10% discount!,1093.0,1093.0
+"",AA11-AAA-009,Sorry; code AA11-AAA-009 is not valid,799.0,799.0
+"",,Call now on 0800 MARSAIR to book!,785.0,785.0
+testPassagemCupomValidoDecemberVazio,code,mensagem,Duration(ms),Duration(ms),Duration(ms),Duration(ms),Duration(ms),Duration(ms),Duration(ms),Duration(ms),Duration(ms),Duration(ms)
+"",AA1-AAA-124,Sorry; there are no more seats available.,766.0,766.0,766.0,766.0,766.0,766.0,766.0,766.0,766.0,766.0
+"",AA11-AAA-009,Sorry; there are no more seats available.,862.0,862.0,862.0,862.0,862.0,862.0,862.0,862.0,862.0,862.0
+"",,Sorry; there are no more seats available.,717.0,717.0,717.0,717.0,717.0,717.0,717.0,717.0,717.0,717.0
+testPassagemCupomValidoDecemberJulyTwoYearsFromNow,code,mensagem,Duration(ms),Duration(ms),Duration(ms),Duration(ms),Duration(ms),Duration(ms),Duration(ms),Duration(ms),Duration(ms),Duration(ms)
+"",AA1-AAA-124,Sorry; there are no more seats available.,1040.0,1040.0,1040.0,1040.0,1040.0,1040.0,1040.0,1040.0,1040.0,1040.0
+"",AA11-AAA-009,Sorry; there are no more seats available.,1027.0,1027.0,1027.0,1027.0,1027.0,1027.0,1027.0,1027.0,1027.0,1027.0
+"",,Sorry; there are no more seats available.,882.0,882.0,882.0,882.0,882.0,882.0,882.0,882.0,882.0,882.0
+testPassagemCupomValidoDecemberNextYearVazio,code,mensagem,Duration(ms),Duration(ms),Duration(ms),Duration(ms),Duration(ms),Duration(ms),Duration(ms),Duration(ms),Duration(ms),Duration(ms)
+"",AA1-AAA-124,Sorry; there are no more seats available.,736.0,736.0,736.0,736.0,736.0,736.0,736.0,736.0,736.0,736.0
+"",AA11-AAA-009,Sorry; there are no more seats available.,792.0,792.0,792.0,792.0,792.0,792.0,792.0,792.0,792.0,792.0
+"",,Sorry; there are no more seats available.,776.0,776.0,776.0,776.0,776.0,776.0,776.0,776.0,776.0,776.0
+testPassagemCupomValidoJulyNextYearJulyTwoYears,code,mensagem,Duration(ms),Duration(ms),Duration(ms),Duration(ms),Duration(ms),Duration(ms),Duration(ms),Duration(ms),Duration(ms),Duration(ms)
+"",AA1-AAA-124,Sorry; there are no more seats available.,1132.0,1132.0,1132.0,1132.0,1132.0,1132.0,1132.0,1132.0,1132.0,1132.0
+"",AA11-AAA-009,Sorry; there are no more seats available.,1096.0,1096.0,1096.0,1096.0,1096.0,1096.0,1096.0,1096.0,1096.0,1096.0
+"",,Sorry; there are no more seats available.,1043.0,1043.0,1043.0,1043.0,1043.0,1043.0,1043.0,1043.0,1043.0,1043.0
+testPassagemCupomValidoDecemberNextYearDecemberTwoYears,code,mensagem,Duration(ms),Duration(ms),Duration(ms),Duration(ms),Duration(ms),Duration(ms),Duration(ms),Duration(ms),Duration(ms),Duration(ms)
+"",AA1-AAA-124,Sorry; there are no more seats available.,1274.0,1274.0,1274.0,1274.0,1274.0,1274.0,1274.0,1274.0,1274.0,1274.0
+"",AA11-AAA-009,Sorry; there are no more seats available.,1099.0,1099.0,1099.0,1099.0,1099.0,1099.0,1099.0,1099.0,1099.0,1099.0
+"",,Sorry; there are no more seats available.,976.0,976.0,976.0,976.0,976.0,976.0,976.0,976.0,976.0,976.0
+testPassagemCupomValidoJulyNextYearDecemberTwoYears,code,mensagem,Duration(ms),Duration(ms),Duration(ms),Duration(ms),Duration(ms),Duration(ms),Duration(ms),Duration(ms),Duration(ms),Duration(ms)
+"",AA1-AAA-124,Sorry; there are no more seats available.,1046.0,1046.0,1046.0,1046.0,1046.0,1046.0,1046.0,1046.0,1046.0,1046.0
+"",AA11-AAA-009,Sorry; there are no more seats available.,1220.0,1220.0,1220.0,1220.0,1220.0,1220.0,1220.0,1220.0,1220.0,1220.0
+"",,Sorry; there are no more seats available.,1056.0,1056.0,1056.0,1056.0,1056.0,1056.0,1056.0,1056.0,1056.0,1056.0
+testPassagemCupomValidoDecemberNextYearJulyTwoYears,code,mensagem,Duration(ms),Duration(ms),Duration(ms),Duration(ms),Duration(ms),Duration(ms),Duration(ms),Duration(ms),Duration(ms),Duration(ms)
+"",AA1-AAA-124,Unfortunately; this schedule is not possible. Please try again.,1066.0,1066.0,1066.0,1066.0,1066.0,1066.0,1066.0,1066.0,1066.0,1066.0
+"",AA11-AAA-009,Unfortunately; this schedule is not possible. Please try again.,986.0,986.0,986.0,986.0,986.0,986.0,986.0,986.0,986.0,986.0
+"",,Unfortunately; this schedule is not possible. Please try again.,5355.0,5355.0,5355.0,5355.0,5355.0,5355.0,5355.0,5355.0,5355.0,5355.0
